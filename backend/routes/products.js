@@ -29,7 +29,7 @@ router.post("/Add-Arts", upLoadProductImg, async (req, resp) => {
       artCollectionss_short_desc: req.body.artCollectionss_short_desc,
       artCollectionss_category: req.body.artCollectionss_category,
       artCollectionss_price: req.body.artCollectionss_price,
-      auction_duration: req.body.auction_duration,
+      auction_EndDate: req.body.auction_EndDate,
       collectionsImg: req.file.filename,
       userData: req.body.userData,
       USEReMAIL: req.body.USEReMAIL,

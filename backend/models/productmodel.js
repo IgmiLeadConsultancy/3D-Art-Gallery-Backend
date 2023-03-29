@@ -1,11 +1,13 @@
 const mongoose=require('mongoose');
+let yourDate = new Date()
+yourDate.toISOString().split('T')[0]
 const ArtCollectionsSchema=new mongoose.Schema({
     collection_title:String,
     artCollectionss_name:String,
     artCollectionss_short_desc:String,
     artCollectionss_category:String,
     artCollectionss_price:Number,
-    auction_duration:Number,
+    auction_EndDate:String,
     collectionsImg:String,
     userData:String,
     USEReMAIL:String,
@@ -20,6 +22,9 @@ const ArtCollectionsSchema=new mongoose.Schema({
     },
     status: {
         type:String,default:"Upcomming"
+    },
+    created_on:{
+        type:Date,default:yourDate
     }
     
 });

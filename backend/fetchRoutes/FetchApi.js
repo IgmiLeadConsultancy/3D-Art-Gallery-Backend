@@ -18,7 +18,7 @@ const contents = require("../models/contents");
 const usersadds = require("../models/addUsers");
 const GeneralSettingsModel = require("../models/GeneralSettingsModel");
 const generalsettings = require("../models/GeneralSettingsModel");
-const user=require("../models/User");
+const user = require("../models/User");
 
 // ********** All Models Ends Here *********** //
 
@@ -179,7 +179,7 @@ router.get("/getAuctionDetails/:id", async (req, resp) => {
 
 router.get("/getartsOfUsersForAuctiuons/:id", async (req, resp) => {
   try {
-    const email=req.params.id
+    const email = req.params.id
     const artsForUsers = await arts.find({ USEReMAIL: email });
     console.log(artsForUsers);
     // resp.send({
@@ -197,9 +197,9 @@ router.get("/OngoingAuctionsArts", async (req, resp) => {
   try {
     const OngoingAuctionsArts = await arts.find({ status: "Ongoing" });
     console.log(OngoingAuctionsArts);
- 
+
     resp.status(201).json(OngoingAuctionsArts);
-    
+
   } catch (error) {
     console.log(error);
   }
@@ -301,7 +301,17 @@ router.get("/Fetch-GeneralSettings", async (req, resp) => {
 });
 
 
-
+router.get("/getAuctionDetailsForBidding/:id", async (req, resp) => {
+  try {
+    console.log(req.params);
+    const { id } = req.params;
+    const getAuctionDetailsForBidding = await arts.findById({ _id: id });
+    console.log(getAuctionDetailsForBidding);
+    resp.status(201).json(getAuctionDetailsForBidding);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 module.exports = router;
